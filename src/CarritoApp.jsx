@@ -3,15 +3,19 @@
  */
 import { Route, Routes} from 'react-router-dom'
 import {NavBar} from './components/NavBar.jsx'
-import {Compras} from './components/Compras.jsx'
+import {ComprasPage} from './pages/ComprasPage.jsx'
+import {CarritoPage} from './pages/CarritoPage.jsx'
 
 export const CarritoApp=()=>{
-	return(<>
-	<h2>Carrito de compras</h2>
-	<NavBar></NavBar>
-	<Routes>
-	<Route path='/' element={<Compras></Compras>}>
-	</Route>
-	</Routes>
+	return(
+	<>
+		<NavBar></NavBar>
+		<div className="container">
+		<Routes>
+			<Route path='/' element={<ComprasPage></ComprasPage>}></Route>
+			<Route path='/carrito' element={<CarritoPage></CarritoPage>}></Route>
+			<Route path='/*' element={<navigate to='/' />}></Route>
+		</Routes>
+		</div>
 	</>)
 }
