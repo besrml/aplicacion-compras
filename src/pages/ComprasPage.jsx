@@ -1,24 +1,12 @@
 /**
  * http://usejsdoc.org/
  */
-import { useEffect, useState } from "react"
+import { useContext } from "react"
+import { ProductosContext } from "../context/ProductosContext.jsx"
+
 import { Card } from "../components/Card.jsx"
 export const ComprasPage=()=> {
-	const [productos,setProductos]=useState([])
-	
-	const fetchProductos=async ()=>{
-		const response=await fetch("https://fakestoreapi.com/products")
-		const data= await response.json()
-		console.log(data)
-		setProductos(data) 
-	}
-	
-	
-	
-	useEffect(()=>{
-		fetchProductos()
-	},[])
-	
+	const { productos } =useContext(ProductosContext)
 	
 	return(<>
 	<h1>Compras:</h1>

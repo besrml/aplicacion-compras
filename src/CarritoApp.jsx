@@ -5,10 +5,10 @@ import { Route, Routes} from 'react-router-dom'
 import {NavBar} from './components/NavBar.jsx'
 import {ComprasPage} from './pages/ComprasPage.jsx'
 import {CarritoPage} from './pages/CarritoPage.jsx'
-
+import { ProductosProvider } from "./context/ProductosProvider.jsx"
 export const CarritoApp=()=>{
 	return(
-	<>
+	<ProductosProvider>
 		<NavBar></NavBar>
 		<div className="container">
 		<Routes>
@@ -17,5 +17,5 @@ export const CarritoApp=()=>{
 			<Route path='/*' element={<navigate to='/' />}></Route>
 		</Routes>
 		</div>
-	</>)
+	</ProductosProvider>)
 }
