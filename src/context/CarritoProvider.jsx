@@ -3,16 +3,17 @@
  */
 import  { CarritoContext } from "./CarritoContext.jsx"
 import  { useReducer } from "react"
+
 const initialState=[]
+/* eslint-disable-next-line react/prop-types */
 export const CarritoProvider=({children}) => {
 	
-const [listaCompras, dispatch] = useReducer(comprasReducer, initialState)
-	const agregarCompra=(compra)=> {
-		 const action = {
+		const agregarCompra=(compra)=> {
+		const action = {
 			type: '[Carrito] Agregar Cantidad Compra',
 			payload: compra
-		 }
-		 dispatch(action)
+		}
+		dispatch(action)
 	}
 
 	const aumentarCantidad=(id)=> {
@@ -38,29 +39,25 @@ const [listaCompras, dispatch] = useReducer(comprasReducer, initialState)
 		dispatch(action)
 	}
 	
-	const comprasReducer = (state =initialState,action ={}) {
+	const comprasReducer = (state =initialState,action ={})=>{
 		switch (action.type) {
 		case '[Carrito] Agregar Cantidad Compra':
-			return [...state, action.payload]
-			break;
-			
+			return [...state, action.payload];
 		case '[Carrito] Aumentar Cantidad Compra':
 			break;
-			
 		case '[Carrito] Disminuir Cantidad Compra':
-			break;
-			
+			break;		
 		case '[Carrito] Eliminar Cantidad Compra':
-			return  state.filter(compra=> compra.id !==action.payload)
-			break;
+			return  state.filter(compra=> compra.id !==action.payload);
 		default :
-			return state
-			
+			return state;
+		}		
 	}
+	const [listaCompras, dispatch] = useReducer(comprasReducer, initialState)
 	
 	return (
-	<CarritoContext.Provider>
-	{children}
+	<CarritoContext.Provider value={{listaCompras, agregarCompra, eliminarCompra, aumentarCantidad, disminuirCantidad}}>
+		{children}
 	</CarritoContext.Provider>
 	)
 }

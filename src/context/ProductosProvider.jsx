@@ -4,6 +4,7 @@
 
 import { useEffect, useState } from "react"
 import { ProductosContext } from './ProductosContext.jsx'
+/* eslint-disable-next-line react/prop-types */
 export const ProductosProvider=({children})=>{
 
 	const [productos,setProductos]=useState([])

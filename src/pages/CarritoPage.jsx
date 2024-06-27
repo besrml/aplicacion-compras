@@ -1,7 +1,12 @@
 /**
  * http://usejsdoc.org/
  */
+import { CarritoContext } from "../context/CarritoContext.jsx"
+import { useContext } from "react"
 export const CarritoPage=()=>{
+	const {listaCompras, agregarCompra, eliminarCompra, 
+		aumentarCantidad, disminuirCantidad}= useContext(CarritoContext)
+		
 	return(
 		<>
 		<table className="table">
@@ -14,13 +19,22 @@ export const CarritoPage=()=>{
 			</tr>
 			</thead>
 		<tbody>
-		<tr>
-			<th scope="row">1</th>
-			<td>Mark</td>
-			<td>Otto</td>
-			<td>@mdo</td>
-			<td>@mdo</td>
-		</tr>
+		{
+			listaCompras.map(
+				item=>(
+						<tr key={item.id}>
+						<th scope="row">{item.title}</th>
+						<td>{item.price}</td>
+						<td>1</td>
+						<td><button type="button" className="btn btn-danger" 
+							onClick={()=>eliminarCompra(item.id)}>Eliminar articulo</button> </td>
+						<td>@mdo</td>
+					</tr>
+						
+				)
+			)
+		}
+		
 		</tbody>
 		</table>
 		
