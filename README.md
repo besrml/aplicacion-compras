@@ -1,8 +1,4 @@
-# React + Vite
+# Carro de compra, ejemplo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este projecto es un ejemplo de un sitio web desarrollado con react, vite y eclipse.
+Falta por hacer la sincronizacion del carro de compra y la pagina de articulos, cuando uno va al carrito de compra y se vuelve al listado de articulos, no se refleja que items han sido previamente seleccionado.
